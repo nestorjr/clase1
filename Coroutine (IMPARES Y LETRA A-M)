@@ -1,0 +1,28 @@
+def generar_secuencia():
+    numero = 1
+    while True:
+        yield numero
+        numero = numero + 2
+
+
+def abecedario():
+    for n in range(ord('a'), ord('m') + 1):
+        yield (chr(n))
+
+
+if __name__ == "__main__":
+
+    numeros = generar_secuencia()
+    for n in numeros:
+        print(n)
+        if n >= 49:
+            break
+
+    abece = abecedario()
+    try:
+        for n in range(ord('m')):
+            print(next(abece))
+            if n == 'm' :
+                break
+    except Exception as e:
+        print (e)
